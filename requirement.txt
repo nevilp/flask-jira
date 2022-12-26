@@ -1,0 +1,5 @@
+flask_sqlalchemy
+marshmallow
+flask_swagger
+tabulate
+pandas
