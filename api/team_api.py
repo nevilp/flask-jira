@@ -1,11 +1,14 @@
 from flask import Blueprint, request
 
-from team_base import TeamBase
 
 
-team_bp = Blueprint('team_bp', __name__)
+from api.bueprint_api import team_bp
+from code_base.swagger_setup import swagger
+from code_base.team_base import TeamBase
+
 
 @team_bp.route('/create_team', methods=['POST'])
+@swagger.docs
 def user_creation():
     teambase = TeamBase()
     return teambase.create_team(request)

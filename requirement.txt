@@ -3,3 +3,4 @@ marshmallow
 flask_swagger
 tabulate
 pandas
+flask-swagger-ui

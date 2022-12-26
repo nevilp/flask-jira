@@ -1,9 +1,10 @@
 from flask import jsonify
 from marshmallow import Schema, fields, validates, ValidationError
 
+from code_base.swagger_setup import swagger
 from database.database import db
 from database.flask_models import Team, User
-from user_base import UserSchema
+
 
 
 
@@ -45,6 +46,7 @@ class TeamBase:
 
 
     # create a team
+
     def create_team(self, request):
         """
         :param request: A json string with the team details
@@ -74,6 +76,8 @@ class TeamBase:
         db.session.commit()
         return jsonify({'id': team.id}), 201
 
+
+    @swagger.docs
     def list_teams(self) -> str:
         """
         :return: A json list with the response.
